@@ -45,16 +45,11 @@ selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].u
 subdf = catdf[catdf["Sub_Category"].isin(selected_subcat)]
 st.dataframe(subdf)
 
-# Aggregating by time
-# Here we ensure Order_Date is in datetime format, then set is as an index to our dataframe
-# subdf.set_index('Order_Date', inplace=True)
 # Here the Grouper is using our newly set index to group by Month ('M')
 monthly = subdf.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 
-st.dataframe(monthly)
-
 # Here the grouped months are the index and automatically used for the x axis
-# st.line_chart(monthly, y="Sales")
+st.line_chart(monthly, y="Sales")
 
 
 
