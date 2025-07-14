@@ -63,9 +63,15 @@ st.write(profit_margin_sum)
 # formated_sales_sum = f"${df["Sales"].sum():,.2f}"
 # formated_sales_mean = f"${df["Sales"].sum():,.2f}"
 
-# st.write(formated_sales)
-st.metric("Formated Total Sales", value = formated_sales_sum, delta = formated_Sales_mean)
-st.metric("Formated Total Sales", value = formated_profit_mean, delta = formated_profit_mean)
+st.write(formated_sales_sum)
+st.write(formated_sales_mean)
+# st.metric("Formated Total Sales", value = formated_sales_sum, delta = formated_Sales_mean)
+# st.metric("Formated Total Sales", value = formated_profit_mean, delta = formated_profit_mean)
+
+
+
+
+
 # st.metric("Total Sales", value = df["Sales"].sum(), delta = df["Sales"].mean())
 # st.metric(df["Profit"].sum())
 # st.metric(abs(df["Sales"].sum() - df["Profit"].sum()) / df["Sales"].sum())
