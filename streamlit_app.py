@@ -65,7 +65,7 @@ st.write(profit_margin_sum)
 
 st.write(formated_sales_sum)
 st.write(formated_sales_mean)
-# st.metric("Formated Total Sales", value = formated_sales_sum, delta = formated_Sales_mean)
+st.metric("Formated Total Sales", value = formated_sales_sum, delta = formated_Sales_mean)
 # st.metric("Formated Total Sales", value = formated_profit_mean, delta = formated_profit_mean)
 
 
