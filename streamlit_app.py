@@ -44,7 +44,7 @@ selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].u
 # subdf = catdf[catdf["Sub_Category"].isin(selected_category.tolist())]
 
 st.write(selected_subcat)
-
+st.write(type(selected_subcat))
 for a in selected_subcat:
   st.write(a)
 
