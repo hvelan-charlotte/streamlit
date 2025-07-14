@@ -39,30 +39,23 @@ st.write("### (5) use the delta option in the overall profit margin metric to sh
 
 selected_category = st.selectbox("Category", options=df["Category"].unique())
 catdf = df[df["Category"] == selected_category]
-
 st.write(catdf)
 
 selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].unique())
 subdf = catdf[catdf["Sub_Category"].isin(selected_subcat)]
-
-st.write(selected_subcat)
-st.write(type(selected_subcat))
-for a in selected_subcat:
-  st.write(a)
-
 st.dataframe(subdf)
 
-# # Aggregating by time
-# # Here we ensure Order_Date is in datetime format, then set is as an index to our dataframe
-# subdf["Order_Date"] = pd.to_datetime(subdf["Order_Date"])
-# subdf.set_index('Order_Date', inplace=True)
-# # Here the Grouper is using our newly set index to group by Month ('M')
-# monthly = subdf.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
+# Aggregating by time
+# Here we ensure Order_Date is in datetime format, then set is as an index to our dataframe
+subdf["Order_Date"] = pd.to_datetime(subdf["Order_Date"])
+subdf.set_index('Order_Date', inplace=True)
+# Here the Grouper is using our newly set index to group by Month ('M')
+monthly = subdf.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 
-# st.dataframe(monthly)
+st.dataframe(monthly)
 
-# # Here the grouped months are the index and automatically used for the x axis
-# st.line_chart(monthly, y="Sales")
+# Here the grouped months are the index and automatically used for the x axis
+st.line_chart(monthly, y="Sales")
 
 
 
