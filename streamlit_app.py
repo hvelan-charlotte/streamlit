@@ -35,3 +35,25 @@ st.write("### (2) add a multi-select for Sub_Category *in the selected Category 
 st.write("### (3) show a line chart of sales for the selected items in (2)")
 st.write("### (4) show three metrics (https://docs.streamlit.io/library/api-reference/data/st.metric) for the selected items in (2): total sales, total profit, and overall profit margin (%)")
 st.write("### (5) use the delta option in the overall profit margin metric to show the difference between the overall average profit margin (all products across all categories)")
+
+
+selected_category = st.selectbox("Category", options=df["Category"].unique())
+catdf = df[df["Category"] == selected_category]
+
+selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].unique())
+subdf = catdf[catdf["Sub_Category"] == selected_category]
+
+# Aggregating by time
+# Here we ensure Order_Date is in datetime format, then set is as an index to our dataframe
+subdf["Order_Date"] = pd.to_datetime(subdf["Order_Date"])
+subdf.set_index('Order_Date', inplace=True)
+# Here the Grouper is using our newly set index to group by Month ('M')
+monthly = subdf.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
+
+st.dataframe(monthly)
+
+# Here the grouped months are the index and automatically used for the x axis
+st.line_chart(monthly, y="Sales")
+
+
+
