@@ -40,6 +40,8 @@ st.write("### (5) use the delta option in the overall profit margin metric to sh
 selected_category = st.selectbox("Category", options=df["Category"].unique())
 catdf = df[df["Category"] == selected_category]
 
+st.write(catdf)
+
 selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].unique())
 subdf = catdf[catdf["Sub_Category"].isin(selected_category)]
 
