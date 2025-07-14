@@ -45,6 +45,9 @@ selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].u
 
 st.write(selected_subcat)
 
+for a in selected_subcat:
+  st.write(a)
+
 # st.dataframe(subdf)
 
 # # Aggregating by time
