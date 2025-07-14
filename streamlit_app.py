@@ -52,8 +52,9 @@ monthly = subdf.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 st.line_chart(monthly, y="Sales")
 
 
-
-st.metric("Total Sales", value = f"${df["Sales"].sum():,.2f}", delta = f"${df["Sales"].mean():,.2f}")
+formated_sales = f"${df["Sales"].sum():,.2f}"
+st.write(formated_sales)
+st.metric("Total Sales", value = df["Sales"].sum(), delta = df["Sales"].mean())
 # st.metric(df["Profit"].sum())
 # st.metric(abs(df["Sales"].sum() - df["Profit"].sum()) / df["Sales"].sum())
 
