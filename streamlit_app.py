@@ -54,6 +54,7 @@ st.line_chart(monthly, y="Sales")
 
 formated_sales = f"${df["Sales"].sum():,.2f}"
 st.write(formated_sales)
+st.metric("Formated Total Sales", value = formated_sales)
 st.metric("Total Sales", value = df["Sales"].sum(), delta = df["Sales"].mean())
 # st.metric(df["Profit"].sum())
 # st.metric(abs(df["Sales"].sum() - df["Profit"].sum()) / df["Sales"].sum())
