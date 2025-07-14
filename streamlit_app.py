@@ -41,7 +41,7 @@ selected_category = st.selectbox("Category", options=df["Category"].unique())
 catdf = df[df["Category"] == selected_category]
 
 selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].unique())
-subdf = catdf[catdf["Sub_Category"] == selected_category]
+subdf = catdf[catdf["Sub_Category"] == [selected_category]]
 
 st.dataframe(subdf)
 
