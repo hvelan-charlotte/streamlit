@@ -47,7 +47,7 @@ st.dataframe(subdf)
 
 # Aggregating by time
 # Here we ensure Order_Date is in datetime format, then set is as an index to our dataframe
-subdf["Order_Date"] = pd.to_datetime(subdf["Order_Date"])
+# subdf["Order_Date"] = pd.to_datetime(subdf["Order_Date"])
 st.write(subdf["Order_Date"].dtype())
 # subdf.set_index('Order_Date', inplace=True)
 # Here the Grouper is using our newly set index to group by Month ('M')
