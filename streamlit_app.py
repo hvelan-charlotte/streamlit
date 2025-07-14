@@ -51,7 +51,7 @@ monthly = subdf.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 # Here the grouped months are the index and automatically used for the x axis
 st.line_chart(monthly, y="Sales")
 
-st.metric("Total Sales", value = df["Sales"].sum(), delta = df["Sales"].mean())
+st.metric("Total Sales", value = millify(df["Sales"].sum()), delta = millify(df["Sales"].mean()))
 # st.metric(df["Profit"].sum())
 # st.metric(abs(df["Sales"].sum() - df["Profit"].sum()) / df["Sales"].sum())
 
