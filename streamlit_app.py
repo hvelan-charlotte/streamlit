@@ -43,7 +43,7 @@ catdf = df[df["Category"] == selected_category]
 st.write(catdf)
 
 selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].unique())
-subdf = catdf[catdf["Sub_Category"].isin(selected_category)]
+subdf = catdf[catdf["Sub_Category"].isin(selected_subcat)]
 
 st.write(selected_subcat)
 st.write(type(selected_subcat))
