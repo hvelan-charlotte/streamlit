@@ -41,9 +41,11 @@ selected_category = st.selectbox("Category", options=df["Category"].unique())
 catdf = df[df["Category"] == selected_category]
 
 selected_subcat = st.multiselect("Sub_Category", options=catdf["Sub_Category"].unique())
-subdf = catdf[catdf["Sub_Category"].isin(selected_category.tolist())]
+# subdf = catdf[catdf["Sub_Category"].isin(selected_category.tolist())]
 
-st.dataframe(subdf)
+st.write(selected_subcat)
+
+# st.dataframe(subdf)
 
 # # Aggregating by time
 # # Here we ensure Order_Date is in datetime format, then set is as an index to our dataframe
