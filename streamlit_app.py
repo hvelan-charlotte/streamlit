@@ -52,32 +52,36 @@ monthly = subdf.filter(items=['Sales']).groupby(pd.Grouper(freq='M')).sum()
 st.line_chart(monthly, y="Sales")
 
 st.metric(label="Total Sales", value=df["Sales"].sum(), delta=df["Sales"].mean())
-st.metric(label="Total Sales", value=df["Profit"].sum(), delta=df["Profit"].mean())
+st.metric(label="Total Profit", value=df["Profit"].sum(), delta=df["Profit"].mean())
+
+profit_margin_sum = (df["Sales"].sum() / df["Profit"].sum()) * 100
+profit_margin_mean = (df["Sales"].mean() / df["Profit"].mean()) * 100
+st.metric(label="Profit Margin %", value=profit_margin_sum, delta=profit_margin_mean)
 
 
 
-formated_sales_sum = f"${df["Sales"].sum():,.2f}"
-formated_sales_mean = f"${df["Sales"].mean():,.2f}"
-
-formated_profit_sum = f"${df["Profit"].sum():,.2f}"
-formated_profit_mean = f"${df["Profit"].mean():,.2f}"
-
-profit_margin_sum = ((df["Profit"].sum() - df["Sales"].sum()) / df["Sales"].sum()) * 100
-st.write(profit_margin_sum)
 # formated_sales_sum = f"${df["Sales"].sum():,.2f}"
-# formated_sales_mean = f"${df["Sales"].sum():,.2f}"
+# formated_sales_mean = f"${df["Sales"].mean():,.2f}"
 
-st.write(formated_sales_sum)
-st.write(formated_sales_mean)
-st.metric("Formated Total Sales", value = formated_sales_sum, delta = formated_Sales_mean)
-# st.metric("Formated Total Sales", value = formated_profit_mean, delta = formated_profit_mean)
+# formated_profit_sum = f"${df["Profit"].sum():,.2f}"
+# formated_profit_mean = f"${df["Profit"].mean():,.2f}"
+
+# profit_margin_sum = ((df["Profit"].sum() - df["Sales"].sum()) / df["Sales"].sum()) * 100
+# st.write(profit_margin_sum)
+# # formated_sales_sum = f"${df["Sales"].sum():,.2f}"
+# # formated_sales_mean = f"${df["Sales"].sum():,.2f}"
+
+# st.write(formated_sales_sum)
+# st.write(formated_sales_mean)
+# st.metric("Formated Total Sales", value = formated_sales_sum, delta = formated_Sales_mean)
+# # st.metric("Formated Total Sales", value = formated_profit_mean, delta = formated_profit_mean)
 
 
 
 
 
-# st.metric("Total Sales", value = df["Sales"].sum(), delta = df["Sales"].mean())
-# st.metric(df["Profit"].sum())
-# st.metric(abs(df["Sales"].sum() - df["Profit"].sum()) / df["Sales"].sum())
+# # st.metric("Total Sales", value = df["Sales"].sum(), delta = df["Sales"].mean())
+# # st.metric(df["Profit"].sum())
+# # st.metric(abs(df["Sales"].sum() - df["Profit"].sum()) / df["Sales"].sum())
 
 
