@@ -54,8 +54,8 @@ st.line_chart(monthly, y="Sales")
 st.metric(label="Total Sales", value=df["Sales"].sum(), delta=df["Sales"].mean())
 st.metric(label="Total Profit", value=df["Profit"].sum(), delta=df["Profit"].mean())
 
-profit_margin_sum = (df["Sales"].sum() / df["Profit"].sum()) * 100
-profit_margin_mean = (df["Sales"].mean() / df["Profit"].mean()) * 100
+profit_margin_sum = (df["Profit"].sum() / df["Sales"].sum()) * 100
+profit_margin_mean = (df["Profit"].mean() / df["Sales"].mean()) * 100
 st.metric(label="Profit Margin %", value=profit_margin_sum, delta=profit_margin_mean)
 
 
